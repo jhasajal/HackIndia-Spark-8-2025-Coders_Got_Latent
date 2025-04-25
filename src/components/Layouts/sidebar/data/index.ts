@@ -12,11 +12,16 @@ export const NAV_DATA = [
             title: "Demo",
             url: "/",
           },
+          {
+            title: "Reports",
+            url: "/reports",
+          },
         ],
       },
+      
       {
         title: "Set Timetable",
-        url: "/calendar",
+        url: "/timetable",
         icon: Icons.Calendar,
         items: [],
       },
