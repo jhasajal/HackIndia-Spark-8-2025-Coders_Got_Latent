@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.6.11",
+    "@supabase/supabase-js": "^2.49.3",
     "apexcharts": "^4.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -23,6 +24,7 @@
     "react": "19.0.0",
     "react-apexcharts": "^1.7.0",
     "react-dom": "19.0.0",
+    "recharts": "^2.15.3",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
