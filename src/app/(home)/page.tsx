@@ -1,6 +1,7 @@
 import { PaymentsOverview } from "@/components/Charts/payments-overview";
 import { UsedDevices } from "@/components/Charts/used-devices";
-import { WeeksProfit } from "@/components/Charts/weeks-profit";
+// import { WeeksProfit } from "@/components/Charts/weeks-profit"; // Remove this line
+import VideoEmbed from "@/components/VideoEmbed"; // Ensure you import VideoEmbed correctly
 import { TopChannels } from "@/components/Tables/top-channels";
 import { TopChannelsSkeleton } from "@/components/Tables/top-channels/skeleton";
 import { createTimeFrameExtractor } from "@/utils/timeframe-extractor";
@@ -33,11 +34,8 @@ export default async function Home({ searchParams }: PropsType) {
           timeFrame={extractTimeFrame("payments_overview")?.split(":")[1]}
         />
 
-        <WeeksProfit
-          key={extractTimeFrame("weeks_profit")}
-          timeFrame={extractTimeFrame("weeks_profit")?.split(":")[1]}
-          className="col-span-12 xl:col-span-5"
-        />
+        {/* Replace WeeksProfit with VideoEmbed */}
+        <VideoEmbed className="col-span-12 xl:col-span-5" />
 
         <UsedDevices
           className="col-span-12 xl:col-span-5"
