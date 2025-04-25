@@ -3,16 +3,16 @@ export async function getOverviewData() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return {
-    views: {
-      value: 3456,
+    total: {
+      value: 67,
       growthRate: 0.43,
     },
-    profit: {
-      value: 4220,
+    emotion: {
+      value: 56,
       growthRate: 4.35,
     },
     products: {
-      value: 3456,
+      value: 41,
       growthRate: 2.59,
     },
     users: {

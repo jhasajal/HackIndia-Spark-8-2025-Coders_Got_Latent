@@ -20,7 +20,7 @@ export function Views(props: SVGPropsType) {
   );
 }
 
-export function Profit(props: SVGPropsType) {
+export function emotion(props: SVGPropsType) {
   return (
     <svg width={58} height={58} viewBox="0 0 58 58" fill="none" {...props}>
       <circle cx={29} cy={29} r={29} fill="#FF9C55" />
