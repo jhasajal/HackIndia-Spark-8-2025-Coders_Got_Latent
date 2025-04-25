@@ -21,10 +21,11 @@ export default function VideoEmbed({ className }: PropsType) {
       <iframe
         src="https://elaborate-crepe-6f6245.netlify.app/demo/index.html"
         width="100%"
-        height="500"
+        height="380"
         style={{ border: "none" }}
         title="Embedded Demo"
         allow="camera;microphone;fullscreen"
+        className="mt-4 rounded-[10px] shadow-lg"
       />
     </div>
   );
