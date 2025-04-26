@@ -14,8 +14,8 @@ import {
 } from 'recharts';
 
 // Supabase Configuration
-const supabaseUrl = "https://eugmznxkrlkmiuxxxamc.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1Z216bnhrcmxrbWl1eHh4YW1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0Mjk3NDcsImV4cCI6MjA1NzAwNTc0N30.-fbxn3l8evz4kwvY3BqCKtkBdPRTCV-aKlQn74W9mC8";
+const supabaseUrl = "https://cptobjklpadqfwzchnxg.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwdG9iamtscGFkcWZ3emNobnhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1ODQyNjEsImV4cCI6MjA2MTE2MDI2MX0.yoih_KbEBd_HajuIqQ65MO6TuK7fFA1ya0-MOX5RIn8";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Emotion Attributes from e_score Table
