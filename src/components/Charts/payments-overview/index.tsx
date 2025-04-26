@@ -20,8 +20,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Emotion Attributes from e_score Table
 const EMOTIONS = [
-  { id: 'happy', label: 'Happiness', color: '#22c55e' },
-  { id: 'sad', label: 'Sadness', color: '#3b82f6' },
+  { id: 'happy', label: 'Happy', color: '#22c55e' },
+  { id: 'sad', label: 'Sad', color: '#3b82f6' },
   { id: 'angry', label: 'Anger', color: '#ef4444' },
   { id: 'surprise', label: 'Surprise', color: '#eab308' },
   { id: 'fear', label: 'Fear', color: '#8b5cf6' },
@@ -47,8 +47,8 @@ export function EmotionGraph() {
         // Format Data for Recharts
         const formattedData = emotions.map((entry: any) => ({
           timestamp: new Date(entry.captured_at).toISOString(),
-          happiness: entry.happy,
-          sadness: entry.sad,
+          happy: entry.happy,
+          sad: entry.sad,
           anger: entry.angry,
           surprise: entry.surprise,
           fear: entry.fear,
