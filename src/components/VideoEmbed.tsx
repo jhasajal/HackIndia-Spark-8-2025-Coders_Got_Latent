@@ -19,7 +19,7 @@ export default function VideoEmbed({ className }: PropsType) {
       </div>
 
       <iframe
-        src="https://elaborate-crepe-6f6245.netlify.app/demo/index.html"
+        src="https://curious-semolina-352258.netlify.app/demo/index.html"
         width="100%"
         height="380"
         style={{ border: "none" }}
