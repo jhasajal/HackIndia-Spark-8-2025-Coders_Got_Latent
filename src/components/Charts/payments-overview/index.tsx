@@ -20,8 +20,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Emotion Attributes from e_score Table
 const EMOTIONS = [
-  { id: 'happiness', label: 'Happiness', color: '#22c55e' },
-  { id: 'sadness', label: 'Sadness', color: '#3b82f6' },
+  { id: 'happy', label: 'Happiness', color: '#22c55e' },
+  { id: 'sad', label: 'Sadness', color: '#3b82f6' },
   { id: 'angry', label: 'Anger', color: '#ef4444' },
   { id: 'surprise', label: 'Surprise', color: '#eab308' },
   { id: 'fear', label: 'Fear', color: '#8b5cf6' },
