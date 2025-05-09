@@ -18,7 +18,7 @@ const supabaseUrl = "https://cptobjklpadqfwzchnxg.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwdG9iamtscGFkcWZ3emNobnhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1ODQyNjEsImV4cCI6MjA2MTE2MDI2MX0.yoih_KbEBd_HajuIqQ65MO6TuK7fFA1ya0-MOX5RIn8";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Emotion Attributes from e_score Table
+// Emotion Attributes from e_score Table changed
 const EMOTIONS = [
   { id: 'happy', label: 'Happy', color: '#22c55e' },
   { id: 'sad', label: 'Sad', color: '#3b82f6' },
