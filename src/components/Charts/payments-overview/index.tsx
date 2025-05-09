@@ -23,13 +23,6 @@ const EMOTIONS = [
   { id: 'fear', label: 'Fear', color: '#8b5cf6' },
   { id: 'disgust', label: 'Disgust', color: '#8b0000' },
   { id: 'neutral', label: 'Neutral', color: '#64748b' },
-  { id: 'happiness', label: 'Happiness', color: '#facc15' },  // Yellow (Tailwind's yellow-400)
-  { id: 'sadness', label: 'Sadness', color: '#7dd3fc' },      // Light blue (Tailwind's sky-300)
-  { id: 'anger', label: 'Anger', color: '#ef4444' },          // Red (kept original)
-  { id: 'surprise', label: 'Surprise', color: '#f97316' },    // Orange (Tailwind's orange-500)
-  { id: 'fear', label: 'Fear', color: '#000000' },            // Pure black
-  { id: 'disgust', label: 'Disgust', color: '#b45309' },      // Brown (Tailwind's amber-700)
-  { id: 'neutral', label: 'Neutral', color: '#a1a1aa' },      // Grey (Tailwind's gray-400)
 ] as const;
 
 export function EmotionGraph() {
@@ -44,16 +37,18 @@ export function EmotionGraph() {
         setData(emotions); // Handle case where emotions is an array
       } else {
         // Format Data for Recharts
-        const formattedData = emotions.map((entry: any) => ({
-          timestamp: new Date(entry.captured_at).toISOString(),
-          happy: entry.happy,
-          sad: entry.sad,
-          anger: entry.angry,
-          surprise: entry.surprise,
-          fear: entry.fear,
-          disgust: entry.disgust,
-          neutral: entry.neutral,
-        }));
+        const formattedData = Array.isArray(emotions)
+          ? emotions.map((entry: any) => ({
+              timestamp: new Date(entry.captured_at).toISOString(),
+              happy: entry.happy,
+              sad: entry.sad,
+              anger: entry.angry,
+              surprise: entry.surprise,
+              fear: entry.fear,
+              disgust: entry.disgust,
+              neutral: entry.neutral,
+            }))
+          : [];
         setData(formattedData);
         setData(emotions.chartData || []); // Handle case where emotions is an object
       }
