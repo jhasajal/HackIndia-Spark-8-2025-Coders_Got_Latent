@@ -1,3 +1,39 @@
+export async function getEmotionData() {
+  // Fake delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  // Generate data for the last 30 days
+  const data = [];
+  const now = new Date();
+  
+  for (let i = 29; i >= 0; i--) {
+    const date = new Date(now);
+    date.setDate(date.getDate() - i);
+    
+    // Generate random values for each emotion (summing to approximately 1)
+    const happiness = Math.random() * 0.3 + 0.2;
+    const sadness = Math.random() * 0.2;
+    const anger = Math.random() * 0.15;
+    const surprise = Math.random() * 0.1;
+    const fear = Math.random() * 0.1;
+    const disgust = Math.random() * 0.1;
+    const neutral = 1 - (happiness + sadness + anger + surprise + fear + disgust);
+    
+    data.push({
+      timestamp: date.toISOString(),
+      happiness: parseFloat(happiness.toFixed(4)),
+      sadness: parseFloat(sadness.toFixed(4)),
+      anger: parseFloat(anger.toFixed(4)),
+      surprise: parseFloat(surprise.toFixed(4)),
+      fear: parseFloat(fear.toFixed(4)),
+      disgust: parseFloat(disgust.toFixed(4)),
+      neutral: parseFloat(neutral.toFixed(4)),
+    });
+  }
+
+  return data;
+}
+
 export async function getDevicesUsedData(
   timeFrame?: "monthly" | "yearly" | (string & {}),
 ) {
@@ -6,32 +42,47 @@ export async function getDevicesUsedData(
 
   const data = [
     {
-      name: "Desktop",
-      percentage: 0.65,
-      amount: 1625,
+      name: "Happiness",
+      percentage: 0.35,
+      amount: 875, // Assuming total of 2500 samples
     },
     {
-      name: "Tablet",
+      name: "Sadness",
+      percentage: 0.15,
+      amount: 375,
+    },
+    {
+      name: "Anger",
       percentage: 0.1,
       amount: 250,
     },
     {
-      name: "Mobile",
+      name: "Surprise",
       percentage: 0.2,
       amount: 500,
     },
     {
-      name: "Unknown",
+      name: "Fear",
+      percentage: 0.1,
+      amount: 250,
+    },
+    {
+      name: "Disgust",
+      percentage: 0.05,
+      amount: 125,
+    },
+    {
+      name: "Neutral",
       percentage: 0.05,
       amount: 125,
     },
   ];
 
   if (timeFrame === "yearly") {
-    data[0].amount = 19500;
-    data[1].amount = 3000;
-    data[2].amount = 6000;
-    data[3].amount = 1500;
+    // Multiply amounts by 12 for yearly data
+    data.forEach(emotion => {
+      emotion.amount *= 12;
+    });
   }
 
   return data;

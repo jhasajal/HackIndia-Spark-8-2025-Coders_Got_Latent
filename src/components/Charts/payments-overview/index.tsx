@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import {
   Area,
   AreaChart,
@@ -12,13 +11,10 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-
-// Supabase Configuration
-const supabaseUrl = "https://cptobjklpadqfwzchnxg.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwdG9iamtscGFkcWZ3emNobnhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1ODQyNjEsImV4cCI6MjA2MTE2MDI2MX0.yoih_KbEBd_HajuIqQ65MO6TuK7fFA1ya0-MOX5RIn8";
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { getEmotionData } from '@/services/emotion.service'; // Import the fake data function
 
 // Emotion Attributes from e_score Table changed
+// Emotion Attributes
 const EMOTIONS = [
   { id: 'happy', label: 'Happy', color: '#22c55e' },
   { id: 'sad', label: 'Sad', color: '#3b82f6' },
@@ -27,22 +23,25 @@ const EMOTIONS = [
   { id: 'fear', label: 'Fear', color: '#8b5cf6' },
   { id: 'disgust', label: 'Disgust', color: '#8b0000' },
   { id: 'neutral', label: 'Neutral', color: '#64748b' },
+  { id: 'happiness', label: 'Happiness', color: '#facc15' },  // Yellow (Tailwind's yellow-400)
+  { id: 'sadness', label: 'Sadness', color: '#7dd3fc' },      // Light blue (Tailwind's sky-300)
+  { id: 'anger', label: 'Anger', color: '#ef4444' },          // Red (kept original)
+  { id: 'surprise', label: 'Surprise', color: '#f97316' },    // Orange (Tailwind's orange-500)
+  { id: 'fear', label: 'Fear', color: '#000000' },            // Pure black
+  { id: 'disgust', label: 'Disgust', color: '#b45309' },      // Brown (Tailwind's amber-700)
+  { id: 'neutral', label: 'Neutral', color: '#a1a1aa' },      // Grey (Tailwind's gray-400)
 ] as const;
 
 export function EmotionGraph() {
   const [data, setData] = useState<any[]>([]);
   const [selectedEmotions, setSelectedEmotions] = useState<string[]>(['neutral']);
 
-  // Fetch Data from Supabase
+  // Fetch Data from fake data function
   useEffect(() => {
     async function fetchEmotionData() {
-      const { data: emotions, error } = await supabase
-        .from('e_score')
-        .select('captured_at, happy, sad, angry, surprise, fear, disgust, neutral')
-        .order('captured_at', { ascending: true });
-
-      if (error) {
-        console.error("Error fetching emotions:", error.message);
+      const emotions = await getEmotionData();
+      if (Array.isArray(emotions)) {
+        setData(emotions); // Handle case where emotions is an array
       } else {
         // Format Data for Recharts
         const formattedData = emotions.map((entry: any) => ({
@@ -56,6 +55,7 @@ export function EmotionGraph() {
           neutral: entry.neutral,
         }));
         setData(formattedData);
+        setData(emotions.chartData || []); // Handle case where emotions is an object
       }
     }
 
@@ -76,12 +76,12 @@ export function EmotionGraph() {
 
   return (
     <div className="col-span-12 xl:col-span-7 overflow-hidden rounded-lg border bg-white/50 backdrop-blur-lg shadow-sm dark:bg-gray-800/50">
-      {/* Card Header - replacing CardHeader */}
+      {/* Card Header */}
       <div className="border-b bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
         <h3 className="text-xl font-semibold text-white">Emotion Trends</h3>
       </div>
       
-      {/* Card Content - replacing CardContent */}
+      {/* Card Content */}
       <div className="p-6">
         {/* Emotion Selection Filters */}
         <div className="mb-6 flex flex-wrap gap-4">
@@ -90,7 +90,6 @@ export function EmotionGraph() {
               key={emotion.id}
               className="flex items-center gap-2 rounded-lg bg-white/50 p-2 dark:bg-gray-700/50"
             >
-              {/* Custom checkbox implementation */}
               <div className="relative flex items-center">
                 <input
                   type="checkbox"
