@@ -44,14 +44,3 @@ Public Space Intelligence is a lightweight, AI-powered tool that uses facial ana
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-## 📬 Contact
-
-Have questions or want to collaborate?  
-Reach out at [your-email@example.com] or DM on [LinkedIn](https://linkedin.com/in/yourprofile).
-
