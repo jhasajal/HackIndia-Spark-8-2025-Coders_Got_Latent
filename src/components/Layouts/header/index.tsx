@@ -38,11 +38,11 @@ export function Header() {
         <h1 className="mb-0.5 text-heading-5 font-bold text-dark dark:text-white">
           Dashboard
         </h1>
-        <p className="font-medium">Next.js Admin Dashboard Solution</p>
+        <p className="font-medium">Demo Dashboard</p>
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-2 min-[375px]:gap-4">
-        <div className="relative w-full max-w-[300px]">
+        <div className="relative w-full max-w-[300px] hidden">
           <input
             type="search"
             placeholder="Search"
@@ -54,10 +54,10 @@ export function Header() {
 
         <ThemeToggleSwitch />
 
-        <Notification />
+        {/* <Notification /> */}
 
         <div className="shrink-0">
-          <UserInfo />
+          {/* <UserInfo /> */}
         </div>
       </div>
     </header>
