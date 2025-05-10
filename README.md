@@ -1,6 +1,6 @@
-# AIspy 👁️‍🗨️
+# Public Space Intelligence 👁️‍🗨️
 
-AIspy is a lightweight, AI-powered tool that uses facial analysis to track real-time engagement, emotion, and attention of users in interviews, classrooms, or corporate environments. With gaze detection, emotion recognition, and session-based analytics, AIspy helps institutions and organizations gain deeper behavioral insights beyond basic attendance or feedback.
+Public Space Intelligence is a lightweight, AI-powered tool that uses facial analysis to track real-time engagement, emotion, and attention of users in interviews, classrooms, or corporate environments. With gaze detection, emotion recognition, and session-based analytics, Public Space Intelligence helps institutions and organizations gain deeper behavioral insights beyond basic attendance or feedback.
 
 ---
 
